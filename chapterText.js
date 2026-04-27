@@ -1,0 +1,16 @@
+window.thesisChapters=[];
+document.write('<script src="chapters/01-introduction.js"></script>');
+document.write('<script src="chapters/02-part-analytical-framework.js"></script>');
+document.write('<script src="chapters/03-literature-review.js"></script>');
+document.write('<script src="chapters/04-theoretical-framework.js"></script>');
+document.write('<script src="chapters/05-research-design.js"></script>');
+document.write('<script src="chapters/06-part-a-philosophical-genealogy-of-european-peace.js"></script>');
+document.write('<script src="chapters/07-the-philosophical-foundations-of-the-european-union-s-identity.js"></script>');
+document.write('<script src="chapters/08-institutional-conatus-and-active-kantianism.js"></script>');
+document.write('<script src="chapters/09-part-institutional-mechanisms.js"></script>');
+document.write('<script src="chapters/10-epf-legal-innovation-and-defence-narrative.js"></script>');
+document.write('<script src="chapters/11-geopolitical-commission-and-defence-centralisation.js"></script>');
+document.write('<script src="chapters/12-part-the-eu-between-just-war-and-perpetual-peace.js"></script>');
+document.write('<script src="chapters/13-justifying-the-sword-just-war-and-the-doctrine-of-the-unjust-enemy.js"></script>');
+document.write('<script src="chapters/14-perpetual-peace-reconsidered.js"></script>');
+document.write('<script src="chapters/15-conclusion.js"></script>');
