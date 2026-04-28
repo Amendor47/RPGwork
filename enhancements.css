@@ -1,0 +1,490 @@
+:root {
+  --surface-soft: rgba(255, 255, 255, 0.76);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --ink: #0b0d12;
+  --ink-muted: #5b6270;
+  --line-soft: rgba(16, 24, 40, 0.1);
+  --shadow-premium: 0 18px 60px rgba(15, 23, 42, 0.12);
+  --shadow-hover: 0 30px 90px rgba(15, 23, 42, 0.18);
+  --accent: #0a84ff;
+  --accent-soft: rgba(10, 132, 255, 0.14);
+  --success-soft: rgba(52, 199, 89, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 24%, #f6f8fb 100%),
+    radial-gradient(circle at 50% 0%, rgba(10, 132, 255, 0.08), transparent 38%);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 100% 72px;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 72%, transparent);
+}
+
+.thesis-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 3px;
+  background: transparent;
+}
+
+.thesis-progress span {
+  display: block;
+  width: calc(var(--progress, 0) * 1%);
+  height: 100%;
+  background: linear-gradient(90deg, #111827, #0a84ff, #34c759);
+  border-radius: 999px;
+  transition: width 120ms ease-out;
+}
+
+.topbar {
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1180px, calc(100% - 28px));
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 12px 50px rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(22px) saturate(1.45);
+  -webkit-backdrop-filter: blur(22px) saturate(1.45);
+}
+
+.brand span {
+  box-shadow: 0 0 0 7px rgba(10, 132, 255, 0.11);
+}
+
+.nav button,
+.menu,
+.brand,
+.actions button,
+.reader-card button,
+.argument-tabs button,
+.pager button,
+.section-list a {
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.nav button:hover,
+.brand:hover,
+.reader-card button:hover,
+.actions button:hover,
+.pager button:hover {
+  transform: translateY(-1px);
+}
+
+.section,
+.chapter-shell {
+  width: min(1240px, calc(100% - 40px));
+}
+
+.hero {
+  min-height: 92vh;
+  padding-top: 128px;
+  gap: clamp(32px, 6vw, 96px);
+}
+
+.hero-copy h1 {
+  max-width: 960px;
+  letter-spacing: 0;
+  line-height: 0.96;
+}
+
+.hero-copy .subtitle,
+.hero-copy .abstract,
+.section-head p {
+  color: var(--ink-muted);
+}
+
+.hero-panel,
+.reader-card,
+.argument-panel,
+.hypotheses article,
+.glossary article,
+.resource-download,
+.resource-panel,
+.chapter-hero,
+.chapter-nav {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 252, 0.78)),
+    var(--surface-strong);
+  box-shadow: var(--shadow-premium);
+}
+
+.hero-panel::after,
+.reader-card::after,
+.argument-panel::after,
+.hypotheses article::after,
+.glossary article::after,
+.chapter-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.62) 42%,
+      transparent 68%
+    );
+  transform: translateX(-120%);
+  transition:
+    opacity 220ms ease,
+    transform 700ms ease;
+}
+
+.hero-panel:hover::after,
+.reader-card:hover::after,
+.argument-panel:hover::after,
+.hypotheses article:hover::after,
+.glossary article:hover::after,
+.chapter-hero:hover::after {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.reader-card,
+.hypotheses article,
+.glossary article,
+.hero-panel {
+  transform-style: preserve-3d;
+  transform:
+    perspective(900px)
+    rotateX(calc(var(--tilt-y, 0) * -1deg))
+    rotateY(calc(var(--tilt-x, 0) * 1deg))
+    translateY(0);
+}
+
+.reader-card:hover,
+.hypotheses article:hover,
+.glossary article:hover,
+.hero-panel:hover {
+  border-color: rgba(10, 132, 255, 0.24);
+  box-shadow: var(--shadow-hover);
+}
+
+.reader-card:hover h3,
+.hypotheses article:hover h3,
+.glossary article:hover h3 {
+  color: var(--accent);
+}
+
+.reader-card .card-meta span,
+.eyebrow,
+.section-kicker {
+  color: #2563eb;
+}
+
+.reader-card.part-card {
+  background:
+    linear-gradient(145deg, rgba(11, 13, 18, 0.96), rgba(31, 41, 55, 0.94));
+  color: #fff;
+}
+
+.reader-card.part-card p,
+.reader-card.part-card .card-meta,
+.reader-card.part-card .card-meta span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.reader-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+  gap: 18px;
+}
+
+.map-line {
+  position: relative;
+  gap: 16px;
+}
+
+.map-line::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  top: 42px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(10, 132, 255, 0.16), rgba(52, 199, 89, 0.18));
+}
+
+.map-line article {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.map-line article:hover,
+.map-line article.is-focused {
+  transform: translateY(-4px);
+  border-color: rgba(10, 132, 255, 0.25);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+}
+
+.argument-layout {
+  align-items: stretch;
+}
+
+.argument-tabs button {
+  border: 1px solid transparent;
+}
+
+.argument-tabs button:hover,
+.argument-tabs button.active {
+  border-color: rgba(10, 132, 255, 0.18);
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.1), rgba(52, 199, 89, 0.08));
+}
+
+.argument-panel details {
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background: rgba(248, 250, 252, 0.78);
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.argument-panel details[open] {
+  border-color: rgba(10, 132, 255, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.chips span {
+  border: 1px solid rgba(10, 132, 255, 0.16);
+  background: var(--accent-soft);
+}
+
+.chapter-shell {
+  gap: 28px;
+}
+
+.chapter-nav {
+  top: 104px;
+  max-height: calc(100vh - 128px);
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(22px) saturate(1.35);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+}
+
+.chapter-nav button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.chapter-nav button:hover,
+.chapter-nav button.active {
+  border-color: rgba(10, 132, 255, 0.2);
+  background: rgba(10, 132, 255, 0.09);
+}
+
+.chapter {
+  max-width: 850px;
+}
+
+.chapter-hero {
+  padding: clamp(28px, 5vw, 56px);
+  margin-bottom: 26px;
+  background:
+    linear-gradient(145deg, rgba(17, 24, 39, 0.98), rgba(31, 41, 55, 0.94));
+  color: white;
+}
+
+.chapter-hero p,
+.chapter-hero span {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.chapter-text {
+  counter-reset: paragraph;
+}
+
+.chapter-text p {
+  position: relative;
+  font-size: clamp(1.06rem, 0.98rem + 0.26vw, 1.22rem);
+  line-height: 1.82;
+}
+
+.chapter-text p:hover {
+  color: #111827;
+}
+
+.section-list {
+  position: sticky;
+  top: 104px;
+  z-index: 3;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 14px 44px rgba(15, 23, 42, 0.08);
+}
+
+.section-list a:hover {
+  background: rgba(10, 132, 255, 0.08);
+}
+
+.pager button {
+  border: 1px solid var(--line-soft);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(247, 249, 252, 0.84));
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+}
+
+.thesis-tools {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(22px) saturate(1.35);
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+}
+
+.thesis-tools button {
+  min-width: 44px;
+  height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  color: #111827;
+  background: rgba(255, 255, 255, 0.82);
+  font: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.thesis-tools button:hover,
+.thesis-tools button.is-active {
+  color: #fff;
+  background: #111827;
+  transform: translateY(-1px);
+}
+
+body.focus-reading .topbar,
+body.focus-reading .chapter-nav,
+body.focus-reading .pager,
+body.focus-reading .section-list {
+  opacity: 0.08;
+  transition: opacity 180ms ease;
+}
+
+body.focus-reading .topbar:hover,
+body.focus-reading .chapter-nav:hover,
+body.focus-reading .pager:hover,
+body.focus-reading .section-list:hover {
+  opacity: 1;
+}
+
+body.focus-reading .chapter {
+  max-width: 780px;
+}
+
+body.focus-reading .chapter-text p {
+  font-size: clamp(1.13rem, 1.04rem + 0.32vw, 1.28rem);
+}
+
+.revealable {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revealable.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    top: 10px;
+    width: min(100% - 20px, 720px);
+  }
+
+  .section,
+  .chapter-shell {
+    width: min(100% - 24px, 720px);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 110px;
+  }
+
+  .map-line::before {
+    display: none;
+  }
+
+  .chapter-shell {
+    display: block;
+  }
+
+  .chapter-nav {
+    position: relative;
+    top: auto;
+    max-height: none;
+    margin-bottom: 18px;
+  }
+
+  .thesis-tools {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .thesis-tools button {
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
