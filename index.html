@@ -1,24 +1,243 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Defending Peace by Other Means</title>
-    <meta
-      name="description"
-      content="Interactive readable website for the thesis Defending Peace by Other Means: Active Kantianism and the Post-2022 European Union."
-    />
-    <link rel="stylesheet" href="styles.css?v=20260428-premium" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <noscript>This interactive thesis reader requires JavaScript.</noscript>
-
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/htm@3.1.1/dist/htm.umd.js"></script>
-    <script src="content.js?v=20260428-premium"></script>
-    <script src="chapterText.js?v=20260428-premium"></script>
-    <script src="app.js?v=20260428-premium"></script>
-  </body>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Defending Peace by Other Means — read the thesis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111111;--ink-2:#2e2e2e;--ink-3:#7a7a7a;--paper:#fbfaf6;--paper-2:#f1efe7;--rule:rgba(0,0,0,.10);--accent:#b8431f;--accent-2:#1f6b5e;--accent-soft:rgba(184,67,31,.08);--serif:'Cormorant Garamond','Times New Roman',Georgia,serif;--sans:'Inter',-apple-system,system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box}html,body{margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.65}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:18px;padding:12px 22px;background:rgba(251,250,246,.88);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--rule);font-family:var(--sans)}
+.topbar .home{font-size:12px;letter-spacing:.06em;color:var(--ink-3);text-decoration:none;border:1px solid var(--rule);padding:6px 12px;border-radius:100px}
+.topbar .home:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.topbar .title{flex:1;font-family:var(--serif);font-size:16px;font-style:italic;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar .meta{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em}
+.topbar .toc-btn{font-size:12px;background:var(--ink);color:var(--paper);border:0;padding:7px 14px;border-radius:100px;cursor:pointer;font-weight:500}
+.topbar .toc-btn:hover{background:var(--accent)}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:100;transition:width .1s linear}
+.shell{display:grid;grid-template-columns:280px 1fr 220px;gap:60px;max-width:1240px;margin:0 auto;padding:40px 30px 120px}
+.toc{position:sticky;top:80px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto;font-family:var(--sans);font-size:13px;padding-right:10px}
+.toc::-webkit-scrollbar{width:4px}.toc::-webkit-scrollbar-thumb{background:var(--rule);border-radius:2px}
+.toc .part{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:22px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.toc .part:first-child{margin-top:0}
+.toc a{display:block;text-decoration:none;color:var(--ink-2);padding:6px 0 6px 16px;border-left:2px solid transparent;line-height:1.35;cursor:pointer;transition:color .15s,border-color .15s,padding .15s}
+.toc a:hover{color:var(--ink);border-left-color:var(--rule)}
+.toc a.active{color:var(--accent);border-left-color:var(--accent);font-weight:600;padding-left:18px}
+.toc a .num{font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-right:8px;font-weight:400}
+.toc a.active .num{color:var(--accent)}
+.reader{min-width:0;max-width:720px;margin:0 auto;width:100%}
+.chap{display:block;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.chap-head{margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+.chap-head .breadcrumb{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+.chap-head h1{font-family:var(--serif);font-size:48px;font-weight:500;line-height:1.08;margin:0 0 16px;letter-spacing:0}
+.chap-head .stats{display:flex;gap:18px;font-family:var(--mono);font-size:11px;color:var(--ink-3);flex-wrap:wrap}
+.chap-head .stats span::before{content:'·';margin-right:18px;color:var(--rule)}
+.chap-head .stats span:first-child::before{display:none;margin:0}
+.chap-body h2{font-family:var(--serif);font-size:28px;font-weight:500;line-height:1.2;margin:48px 0 16px;color:var(--ink);position:relative}
+.chap-body h2::before{content:'§';position:absolute;left:-28px;top:4px;font-size:22px;color:var(--accent);font-weight:400}
+.chap-body h3{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:36px 0 12px}
+.chap-body p{margin:0 0 1.1em;text-align:justify;hyphens:auto;text-wrap:pretty}
+.chap-body p.lede{font-size:22px;line-height:1.55;font-style:italic;color:var(--ink-2);margin-bottom:1.6em}
+.chap-body>p:first-child::first-letter{font-family:var(--serif);font-size:64px;font-weight:600;float:left;line-height:.92;margin:6px 10px 0 0;color:var(--accent)}
+.chap-body ::selection{background:var(--accent);color:var(--paper)}
+.rail{position:sticky;top:80px;align-self:start;font-family:var(--sans);font-size:12px;color:var(--ink-3);max-height:calc(100vh - 100px);overflow-y:auto;padding-left:16px;border-left:1px solid var(--rule)}
+.rail .label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+.rail .mini{display:flex;flex-direction:column;gap:4px;margin-bottom:32px}
+.rail .mini a{text-decoration:none;color:var(--ink-2);padding:5px 8px;border-radius:4px;border-left:2px solid transparent;line-height:1.3;cursor:pointer}
+.rail .mini a:hover{background:rgba(0,0,0,.04)}
+.rail .mini a.active{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft);font-weight:500}
+.rail .tools{display:flex;flex-direction:column;gap:8px}
+.rail .tools button{font-family:var(--sans);font-size:11px;background:transparent;border:1px solid var(--rule);border-radius:100px;padding:6px 12px;text-align:left;cursor:pointer;color:var(--ink-2)}
+.rail .tools button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rail .tools button.on{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.chap-foot{margin-top:80px;padding-top:28px;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.chap-foot a{text-decoration:none;color:var(--ink);padding:18px 22px;border:1px solid var(--rule);border-radius:8px;background:var(--paper-2);font-family:var(--sans);display:block;cursor:pointer;transition:all .15s}
+.chap-foot a:hover{border-color:var(--accent);background:var(--accent-soft)}
+.chap-foot a.disabled{opacity:.3;pointer-events:none}
+.chap-foot a .dir{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.chap-foot a .ttl{font-family:var(--serif);font-size:18px;font-weight:500;line-height:1.2}
+.chap-foot a.next{text-align:right}
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(20,20,20,.55);backdrop-filter:blur(4px);display:none;justify-content:flex-end}
+.overlay.open{display:flex}
+.overlay .panel{width:min(440px,100%);background:var(--paper);padding:30px 30px 60px;overflow-y:auto;font-family:var(--sans);animation:slideIn .25s ease}
+@keyframes slideIn{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}
+.overlay .panel .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.overlay .panel .head h3{font-family:var(--serif);font-size:24px;font-weight:500;margin:0}
+.overlay .panel .head button{background:transparent;border:0;cursor:pointer;font-size:22px;color:var(--ink-3);width:32px;height:32px;border-radius:50%}
+.overlay .panel .head button:hover{background:rgba(0,0,0,.08);color:var(--ink)}
+.overlay .panel .part{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:22px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--rule)}
+.overlay .panel a{display:block;padding:8px 12px;text-decoration:none;color:var(--ink);font-size:14px;border-radius:4px;cursor:pointer;line-height:1.35}
+.overlay .panel a:hover{background:rgba(0,0,0,.05)}
+.overlay .panel a .num{font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-right:10px}
+.overlay .panel a.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
+body.serif-only .chap-body p{text-align:left}
+body.dark{--paper:#141413;--paper-2:#1d1d1b;--ink:#ecebe6;--ink-2:#bfbeb7;--ink-3:#807e76;--rule:rgba(255,255,255,.10);--accent:#e87a4a;--accent-2:#5fb5a3;--accent-soft:rgba(232,122,74,.14)}
+body.dark .topbar{background:rgba(20,20,19,.88)}
+body.size-s{font-size:17px}body.size-l{font-size:21px}body.size-xl{font-size:24px}
+body.size-xl .chap-head h1{font-size:56px}
+@media (max-width:1100px){.shell{grid-template-columns:1fr;gap:30px;padding:20px}.toc,.rail{display:none}.chap-head h1{font-size:36px}body{font-size:17px}.topbar{gap:10px}.topbar .title{font-size:14px}.chap-body h2::before{display:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="topbar">
+  <a class="home" href="#chapter-1">← Contents</a>
+  <div class="title"><em>Defending Peace by Other Means</em> — Active Kantianism &amp; the post-2022 EU</div>
+  <div class="meta" id="topmeta">CH 01</div>
+  <button class="toc-btn" id="openToc">Contents ☰</button>
+</header>
+<div class="shell">
+  <aside class="toc" id="toc"></aside>
+  <main class="reader" id="reader"></main>
+  <aside class="rail">
+    <div class="label">In this chapter</div>
+    <nav class="mini" id="miniToc"></nav>
+    <div class="label">Reading</div>
+    <div class="tools">
+      <button id="sizeBtn">Aa — Comfortable</button>
+      <button id="darkBtn">◐ Night mode</button>
+      <button id="raggedBtn">¶ Ragged right</button>
+      <button id="downloadBtn">↓ Full thesis draft</button>
+    </div>
+  </aside>
+</div>
+<div class="overlay" id="overlay">
+  <div class="panel">
+    <div class="head"><h3>Table of Contents</h3><button id="closeToc">×</button></div>
+    <div id="overlayList"></div>
+  </div>
+</div>
+<script src="chapterText.js?v=exact-reader"></script>
+<script>
+const chapters = (window.thesisChapters || []).map((chapter) => {
+  const body = [];
+  const subs = [];
+  (chapter.sections || []).forEach((section) => {
+    if (section.heading && section.heading !== 'Opening' && section.heading !== 'Part opening') {
+      body.push({ kind: 'h2', text: section.heading });
+      subs.push(section.heading);
+    }
+    (section.paragraphs || []).forEach((text) => body.push({ kind: 'p', text }));
+  });
+  return {
+    part: chapter.part || 'Thesis',
+    title: chapter.shortTitle || chapter.title,
+    subs,
+    body
+  };
+});
+const reader = document.getElementById('reader');
+const tocEl = document.getElementById('toc');
+const miniTocEl = document.getElementById('miniToc');
+const overlayList = document.getElementById('overlayList');
+const overlay = document.getElementById('overlay');
+const topmeta = document.getElementById('topmeta');
+const progressBar = document.getElementById('progress');
+let activeIdx = 0;
+function escape(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function buildToc(){
+  const parts = {};
+  chapters.forEach((c,i) => { (parts[c.part] = parts[c.part]||[]).push({...c, idx:i}); });
+  let html = '';
+  Object.entries(parts).forEach(([part,list]) => {
+    html += '<div class="part">' + escape(part) + '</div>';
+    list.forEach(c => {
+      const num = String(c.idx+1).padStart(2,'0');
+      html += '<a data-idx="'+c.idx+'"><span class="num">'+num+'</span>'+escape(c.title)+'</a>';
+    });
+  });
+  tocEl.innerHTML = html;
+  overlayList.innerHTML = html;
+  document.querySelectorAll('[data-idx]').forEach(a => {
+    a.addEventListener('click', () => { goTo(parseInt(a.dataset.idx,10)); overlay.classList.remove('open'); });
+  });
+}
+function render(idx){
+  const c = chapters[idx]; if(!c) return;
+  activeIdx = idx;
+  const num = String(idx+1).padStart(2,'0');
+  const wc = c.body.reduce((a,p) => a + (p.text || '').split(/\s+/).filter(Boolean).length, 0);
+  const rm = Math.max(1, Math.round(wc/220));
+  let bodyHtml = ''; let firstP = true; let subIdx = 0;
+  c.body.forEach(p => {
+    if(p.kind==='h2'){ const id = 'sub-'+subIdx++; bodyHtml += '<h2 id="'+id+'">'+escape(p.text)+'</h2>'; }
+    else if(p.kind==='h3'){ bodyHtml += '<h3>'+escape(p.text)+'</h3>'; }
+    else { const cls = (firstP && idx!==0) ? ' class="lede"' : ''; bodyHtml += '<p'+cls+'>'+escape(p.text)+'</p>'; firstP=false; }
+  });
+  const prev = idx>0 ? chapters[idx-1] : null;
+  const next = idx<chapters.length-1 ? chapters[idx+1] : null;
+  reader.innerHTML = '<article class="chap">'+
+    '<header class="chap-head">'+
+      '<div class="breadcrumb">'+escape(c.part)+' · Chapter '+num+'</div>'+
+      '<h1>'+escape(c.title)+'</h1>'+
+      '<div class="stats"><span>'+wc.toLocaleString()+' words</span><span>'+rm+' min read</span><span>'+c.body.filter(p=>p.kind==='p').length+' paragraphs</span></div>'+
+    '</header>'+
+    '<div class="chap-body">'+bodyHtml+'</div>'+
+    '<nav class="chap-foot">'+
+      '<a class="prev '+(prev?'':'disabled')+'" '+(prev?'data-go="'+(idx-1)+'"':'')+'><div class="dir">← Previous</div><div class="ttl">'+(prev?escape(prev.title):'—')+'</div></a>'+
+      '<a class="next '+(next?'':'disabled')+'" '+(next?'data-go="'+(idx+1)+'"':'')+'><div class="dir">Next →</div><div class="ttl">'+(next?escape(next.title):'—')+'</div></a>'+
+    '</nav></article>';
+  reader.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', () => goTo(parseInt(a.dataset.go,10))));
+  if(c.subs.length){
+    miniTocEl.innerHTML = c.subs.map((s,i) => '<a data-sub="sub-'+i+'">'+escape(s)+'</a>').join('');
+    miniTocEl.querySelectorAll('[data-sub]').forEach(a => a.addEventListener('click', () => {
+      const el = document.getElementById(a.dataset.sub);
+      if(el){ const y = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({top:y, behavior:'smooth'}); }
+    }));
+  } else {
+    miniTocEl.innerHTML = '<a style="color:var(--ink-3); cursor:default;">No subsections.</a>';
+  }
+  topmeta.textContent = 'CH '+num+' / '+String(chapters.length).padStart(2,'0');
+  document.querySelectorAll('[data-idx]').forEach(a => a.classList.toggle('active', parseInt(a.dataset.idx,10)===idx));
+  localStorage.setItem('thesis-chap', String(idx));
+  history.replaceState(null, '', '#chapter-'+(idx+1));
+}
+function goTo(idx){ render(idx); window.scrollTo({top:0, behavior:'smooth'}); }
+function updateProgress(){
+  const h = document.documentElement;
+  const t = h.scrollHeight - h.clientHeight;
+  progressBar.style.width = (t>0 ? (h.scrollTop/t)*100 : 0) + '%';
+  const subs = reader.querySelectorAll('h2');
+  let act = -1;
+  subs.forEach((s,i) => { if(s.getBoundingClientRect().top < 120) act = i; });
+  miniTocEl.querySelectorAll('[data-sub]').forEach((a,i) => a.classList.toggle('active', i===act));
+}
+window.addEventListener('scroll', updateProgress, {passive:true});
+const sizes = ['size-s','','size-l','size-xl'];
+const sizeLabels = ['Aa — Compact','Aa — Comfortable','Aa — Large','Aa — Extra large'];
+let sizeIdx = parseInt(localStorage.getItem('thesis-size')||'1', 10);
+function applySize(){ document.body.classList.remove(...sizes.filter(Boolean)); if(sizes[sizeIdx]) document.body.classList.add(sizes[sizeIdx]); document.getElementById('sizeBtn').textContent = sizeLabels[sizeIdx]; localStorage.setItem('thesis-size', String(sizeIdx)); }
+document.getElementById('sizeBtn').addEventListener('click', () => { sizeIdx = (sizeIdx+1) % sizes.length; applySize(); });
+const darkBtn = document.getElementById('darkBtn');
+let dark = localStorage.getItem('thesis-dark')==='1';
+function applyDark(){ document.body.classList.toggle('dark', dark); darkBtn.classList.toggle('on', dark); darkBtn.textContent = dark ? '☀ Day mode' : '◐ Night mode'; localStorage.setItem('thesis-dark', dark?'1':'0'); }
+darkBtn.addEventListener('click', () => { dark=!dark; applyDark(); });
+const raggedBtn = document.getElementById('raggedBtn');
+let ragged = localStorage.getItem('thesis-ragged')==='1';
+function applyRagged(){ document.body.classList.toggle('serif-only', ragged); raggedBtn.classList.toggle('on', ragged); raggedBtn.textContent = ragged ? '¶ Justified' : '¶ Ragged right'; localStorage.setItem('thesis-ragged', ragged?'1':'0'); }
+raggedBtn.addEventListener('click', () => { ragged=!ragged; applyRagged(); });
+document.getElementById('downloadBtn').addEventListener('click', () => { window.location.href='assets/Temporary-FINAL-DRAFT.docx'; });
+document.getElementById('openToc').addEventListener('click', () => overlay.classList.add('open'));
+document.getElementById('closeToc').addEventListener('click', () => overlay.classList.remove('open'));
+overlay.addEventListener('click', e => { if(e.target===overlay) overlay.classList.remove('open'); });
+window.addEventListener('keydown', e => {
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
+  if(e.key==='ArrowRight'||e.key==='j'){ if(activeIdx<chapters.length-1) goTo(activeIdx+1); }
+  else if(e.key==='ArrowLeft'||e.key==='k'){ if(activeIdx>0) goTo(activeIdx-1); }
+  else if(e.key==='Escape'){ overlay.classList.remove('open'); }
+  else if(e.key==='/'){ e.preventDefault(); overlay.classList.add('open'); }
+});
+buildToc(); applySize(); applyDark(); applyRagged();
+let start = 0;
+const m = window.location.hash.match(/chapter-(\d+)/);
+if(m) start = Math.max(0, Math.min(chapters.length-1, parseInt(m[1],10)-1));
+else { const s = parseInt(localStorage.getItem('thesis-chap')||'0', 10); if(!isNaN(s)&&s>=0&&s<chapters.length) start = s; }
+render(start); updateProgress();
+</script>
+</body>
 </html>
