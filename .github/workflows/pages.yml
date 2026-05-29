@@ -1,4 +1,4 @@
-name: Deploy static thesis site
+name: Deploy static site
 
 on:
   push:

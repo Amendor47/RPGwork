@@ -1,137 +1,336 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Defending Peace by Other Means — thesis website</title>
-<meta name="description" content="Homepage for Rayane Feriate's College of Europe thesis on Active Kantianism and the post-2022 European Union." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>When You Call Me, Singe — a bilingual love story</title>
+<meta name="description" content="A bilingual (FR/EN) interactive love story. Lou burns. Elias holds the fire. Decode emotions, travel to Sweden, and answer the call."/>
+<meta property="og:title" content="When You Call Me, Singe"/>
+<meta property="og:description" content="Somewhere between a Discord call and a Swedish winter, two people accidentally fell in love."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#d97745"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#111111;--paper:#fbfaf6;--paper-2:#f1efe7;--bg:#f7f5ef;--muted:#6f6d66;--line:rgba(0,0,0,.13);--accent:#b8431f;--accent-2:#1f6b5e;--accent-3:#d9b85a;--serif:'Cormorant Garamond','Times New Roman',Georgia,serif;--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.56;background-image:radial-gradient(circle at 20% 30%,rgba(0,0,0,.018),transparent 38%),radial-gradient(circle at 80% 70%,rgba(0,0,0,.018),transparent 36%)}
-a{color:inherit}.site-nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px clamp(18px,4vw,44px);background:rgba(233,226,210,.88);backdrop-filter:blur(14px);border-bottom:1.5px dashed rgba(0,0,0,.25)}
- .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px;font-weight:500}.crest{width:32px;height:32px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:10px;background:var(--paper)}
-.nav-links{display:flex;gap:24px;align-items:center;font-family:var(--sans);font-size:13px;font-weight:600}.nav-links a{text-decoration:none;position:relative}.nav-links a:hover::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:3px;background:var(--accent);border-radius:10px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;border-radius:4px;padding:8px 16px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.01em;box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s,background .15s}.btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);background:var(--accent)}.btn.ghost{background:transparent;color:var(--ink);box-shadow:none}.btn.ghost:hover{background:rgba(0,0,0,.05)}
-.shell{width:min(1240px,calc(100% - 32px));margin:24px auto 80px}.paper{background:var(--paper);border:2px solid var(--ink);border-radius:7px;box-shadow:7px 7px 0 var(--ink);overflow:hidden}.chrome{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#ddd5c2;border-bottom:1.5px solid var(--ink)}.dot{width:11px;height:11px;border:1.5px solid var(--ink);border-radius:50%}.url{flex:1;background:var(--paper);border:1.5px solid var(--ink);border-radius:18px;padding:5px 14px;font-family:var(--mono);font-size:12px;color:#555}
-.hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:54px;padding:clamp(42px,7vw,76px);border-bottom:1.5px dashed var(--line)}.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(56px,8vw,98px);line-height:.97;margin:0 0 16px}.hero h1 em{font-style:italic;background:rgba(184,67,31,.10);padding:0 6px}.subtitle{font-family:var(--sans);font-size:clamp(22px,2.6vw,31px);line-height:1.22;color:#444;margin:0 0 24px}.byline{font-family:var(--mono);font-size:12px;color:#555;margin-bottom:28px}.byline span{display:inline-block;width:4px;height:4px;border-radius:50%;background:#555;margin:0 8px;vertical-align:middle}.ctas{display:flex;gap:14px;flex-wrap:wrap}
-.visual{min-height:390px;border:2px solid var(--ink);background:var(--paper-2);border-radius:5px;position:relative;overflow:hidden}.stamp{position:absolute;top:20px;right:18px;border:2px solid var(--accent);color:var(--accent);padding:7px 13px;transform:rotate(-6deg);font-family:var(--mono);font-size:11px;letter-spacing:.16em;background:rgba(251,250,246,.72)}.word{position:absolute;font-family:var(--serif);font-weight:500;opacity:.9}.w1{top:34px;left:30px;font-size:42px}.w2{top:96px;left:72px;font-size:76px;color:var(--accent);transform:rotate(-3deg)}.w3{top:192px;left:34px;font-size:25px;opacity:.5}.w4{top:230px;left:54px;font-size:86px;transform:rotate(2deg)}.w5{top:320px;left:32px;font-size:28px;color:var(--accent-2)}.scribble{position:absolute;right:18px;bottom:18px}.pin-note{position:absolute;right:22px;bottom:24px;max-width:184px;background:#fff7ce;border:1.5px solid var(--ink);padding:12px 14px;transform:rotate(3deg);font-family:var(--sans);font-size:13px;line-height:1.35;font-weight:600;box-shadow:3px 3px 0 rgba(0,0,0,.18)}
-.ticker{display:flex;gap:36px;padding:15px clamp(28px,6vw,76px);border-bottom:1.5px solid var(--ink);background:var(--paper-2);font-family:var(--mono);font-size:12px;letter-spacing:.1em;overflow:auto}.ticker span{white-space:nowrap}.ticker span::before{content:'* ';color:var(--accent)}
-.section{padding:clamp(38px,6vw,70px) clamp(26px,6vw,76px);border-bottom:1.5px dashed var(--line)}.section h2{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5vw,58px);line-height:1.05;margin:0 0 16px}.lead{font-family:var(--sans);font-size:22px;line-height:1.5;max-width:900px;color:#3e3b34}.grid{display:grid;gap:22px}.cols-3{grid-template-columns:repeat(3,1fr)}.cols-4{grid-template-columns:repeat(4,1fr)}.card{border:2px solid var(--ink);background:rgba(255,255,255,.38);border-radius:5px;padding:22px;min-height:180px;transition:transform .16s,background .16s}.card:hover{transform:rotate(-.7deg) translateY(-3px);background:rgba(255,255,255,.55)}.num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin-bottom:10px}.card h3{font-family:var(--serif);font-weight:500;font-size:29px;line-height:1.08;margin:0 0 10px}.card p{margin:0;color:#47433b}
-.argument{display:grid;grid-template-columns:230px 1fr 250px;gap:40px}.toc-list{position:sticky;top:86px;align-self:start}.label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}.toc-list ol{list-style:none;padding:0;margin:0;counter-reset:item}.toc-list li{counter-increment:item;padding:9px 0 9px 32px;border-bottom:1px dashed rgba(0,0,0,.25);position:relative;line-height:1.22}.toc-list li::before{content:counter(item,decimal-leading-zero);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:10px;color:#777}.toc-list li.active{font-weight:700}.toc-list li.active::after{content:'->';position:absolute;right:0;color:var(--accent)}
-.read-preview h2{font-size:46px}.lede{font-family:var(--sans);font-size:20px;line-height:1.55;border-left:3px solid var(--accent);padding-left:18px}.pullquote{font-family:var(--serif);font-weight:500;font-size:35px;line-height:1.16;margin:30px 0;padding:22px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}.aside{position:sticky;top:86px;align-self:start;border-left:2px dashed rgba(0,0,0,.3);padding-left:20px;font-family:var(--sans);font-size:15px}.term{margin-bottom:18px}.term b{display:block;font-family:var(--serif);font-weight:500;font-size:23px;margin-bottom:4px}
-.footer{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;padding:32px clamp(26px,6vw,76px);background:var(--paper-2);font-family:var(--sans);font-size:14px}.footer h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 10px}
-.mobile-read{display:none}@media(max-width:960px){.nav-links a:not(.btn){display:none}.hero,.argument,.footer{grid-template-columns:1fr}.visual{min-height:320px}.toc-list,.aside{position:static}.cols-3,.cols-4{grid-template-columns:1fr}.ticker{gap:20px}.paper{box-shadow:4px 4px 0 var(--ink)}.mobile-read{display:inline-flex}.hero{padding:34px 24px}.section{padding:38px 24px}.site-nav{align-items:flex-start}.brand span{display:none}}@media(max-width:620px){.ctas{flex-direction:column;align-items:stretch}.btn{width:100%}.hero h1{font-size:44px}.word.w4{font-size:62px}.word.w2{font-size:56px}.pin-note{position:relative;right:auto;bottom:auto;margin:18px}.footer{font-size:16px}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
 </head>
+
 <body>
-<nav class="site-nav">
-  <div class="brand"><div class="crest">CoE</div><span>Rayane Feriate · Thesis 2026</span></div>
-  <div class="nav-links">
-    <a href="#argument">The argument</a>
-    <a href="#concepts">Concepts</a>
-    <a href="#structure">Structure</a>
-    <a href="#about">About</a>
-    <a class="btn" href="read.html?v=20260430-final">Read ↗</a>
+
+<canvas id="snow"></canvas>
+
+<!-- top-left controls -->
+<div class="controls">
+  <button id="langBtn">🇬🇧 EN · FR</button>
+  <button id="audioBtn">🔈 lo-fi</button>
+</div>
+
+<!-- stats HUD -->
+<div class="stats" id="stats">
+  <button class="stats-toggle" onclick="toggleStats()">▾ stats</button>
+  <div class="stats-body">
+    <div class="row">
+      <div class="stat-label">🔥 <span data-en="Singe Meter" data-fr="Singe Meter">Singe Meter</span> <span id="singeNum">20</span></div>
+      <div class="meter"><div class="fill flame" id="singeFill"></div></div>
+    </div>
+    <div class="row">
+      <div class="stat-label">🧠 <span data-en="Elias Comprehension" data-fr="Compréhension d’Elias">Elias Comprehension</span> <span id="compNum">0</span></div>
+      <div class="meter"><div class="fill calm" id="compFill"></div></div>
+    </div>
+    <div class="row stat-label">
+      🎧 <span data-en="Voice Notes" data-fr="Notes vocales">Voice Notes</span> <span id="voiceCount">0</span>
+    </div>
   </div>
+</div>
+
+<!-- progress dots -->
+<nav class="dots-nav">
+  <a href="#landing"   data-target="landing"   title="Start"></a>
+  <a href="#chapter1"  data-target="chapter1"  title="Chapter 1"></a>
+  <a href="#chapter2"  data-target="chapter2"  title="Chapter 2"></a>
+  <a href="#chapter3"  data-target="chapter3"  title="Chapter 3"></a>
+  <a href="#chapter4"  data-target="chapter4"  title="Chapter 4"></a>
+  <a href="#final"     data-target="final"     title="Final"></a>
+  <a href="#gallery"   data-target="gallery"   title="Voice notes"></a>
 </nav>
 
-<main class="shell paper">
-  <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">rayane-feriate.eu / defending-peace-by-other-means</div></div>
 
-  <section class="hero" id="home">
-    <div>
-      <div class="kicker">A thesis · College of Europe · 2025-2026</div>
-      <h1>Defending <em>Peace</em><br>by Other Means.</h1>
-      <p class="subtitle">Active Kantianism and the post-2022 European Union.</p>
-      <div class="byline">Rayane Feriate <span></span> Supervisor: Alberto Alemanno <span></span> College of Europe</div>
-      <div class="ctas">
-        <a href="read.html?v=20260430-final" class="btn">Begin reading ↗</a>
-        <a href="#abstract" class="btn ghost">Read the abstract</a>
-        <a href="#structure" class="btn ghost">See the structure</a>
+<!-- ================= LANDING ================= -->
+<section id="landing">
+  <div class="container center">
+
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="screen">
+          <div class="caller pixel" data-en="incoming call" data-fr="appel entrant">incoming call</div>
+          <div class="who pixel">Elias</div>
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
       </div>
     </div>
-    <div class="visual" aria-label="Conceptual sketch: norms, peace, power, conatus">
-      <div class="stamp">CoE Bruges · 2026</div>
-      <span class="word w1">norms</span>
-      <span class="word w2">peace</span>
-      <span class="word w3">— or —</span>
-      <span class="word w4">power</span>
-      <span class="word w5">conatus</span>
-      <svg class="scribble" width="140" height="48" viewBox="0 0 140 48" aria-hidden="true">
-        <path d="M6,36 Q24,6 42,33 T84,26 T130,18" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-        <path d="M112,14 L130,18 L118,31" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="pin-note">headline + abstract + full reader in one fold</div>
-    </div>
-  </section>
 
-  <div class="ticker">
-    <span>4 parts</span><span>15 reading chapters</span><span>4 interviews</span><span>1 doctrine: hostis iniustus</span><span>Kant + Spinoza + Schmitt</span>
+    <div class="eyebrow" data-en="a bilingual interactive love story" data-fr="une histoire d’amour interactive bilingue">a bilingual interactive love story</div>
+    <div class="spacer"></div>
+    <h1><span class="title-line"><span class="typewriter">WHEN YOU CALL ME, SINGE</span></span></h1>
+
+    <div class="spacer-lg"></div>
+
+    <div class="card reveal" style="max-width:680px;margin-inline:auto">
+      <p id="introText"
+         data-en="Somewhere between a Discord call and a Swedish winter, two people accidentally fell in love."
+         data-fr="Quelque part entre un appel Discord et un hiver suédois, deux personnes sont tombées amoureuses par accident.">
+        Somewhere between a Discord call and a Swedish winter, two people accidentally fell in love.
+      </p>
+      <div class="spacer"></div>
+      <p class="pixel" style="font-size:1.3rem;color:var(--orange-deep)"
+         data-en="Lou burns. Elias holds the fire." data-fr="Lou brûle. Elias tient le feu.">
+        Lou burns. Elias holds the fire.
+      </p>
+      <div class="spacer-lg"></div>
+
+      <div class="cat" onclick="unlockCat()" title="psst">🐈 Baudelaire</div>
+      <div id="catSecret" class="vod hidden">
+        <span class="live">LIVE VOD</span>
+        <div class="spacer"></div>
+        <p data-en="“ok chat WHO is this swedish guy spamming little blue hearts and WHY is he STILL here after three hours… anyway. moving on. …he’s still here.”"
+           data-fr="« ok chat C’EST QUI ce suédois qui spamme des petits cœurs bleus et POURQUOI il est ENCORE là après trois heures… bref. on continue. …il est toujours là. »">
+          “ok chat WHO is this swedish guy spamming little blue hearts and WHY is he STILL here after three hours… anyway. moving on. …he’s still here.”
+        </p>
+        <div class="spacer"></div>
+        <p class="muted" style="font-size:.85rem" data-en="🎧 hidden voice note unlocked" data-fr="🎧 note vocale cachée débloquée">🎧 hidden voice note unlocked</p>
+      </div>
+
+      <div class="spacer-lg"></div>
+      <button class="big" onclick="byId('chapter1').scrollIntoView()"
+              data-en="▶ Start the Story" data-fr="▶ Commencer l’histoire">▶ Start the Story</button>
+      <button class="ghost" onclick="byId('ptest').scrollIntoView()"
+              data-en="Are you Lou or Elias?" data-fr="Es-tu Lou ou Elias ?">Are you Lou or Elias?</button>
+    </div>
   </div>
+</section>
 
-  <section class="section" id="abstract">
-    <h2>The thesis in one move.</h2>
-    <p class="lead">The European Union has not simply moved from norms to power. Since 2022, it has reframed power as necessary for the defence of norms: a coercive reinterpretation of the Kantian peace project under existential pressure.</p>
-    <div class="grid cols-3">
-      <div class="card"><div class="num">01</div><h3>Research question</h3><p>How has the EU justified and institutionalised its post-2022 shift from a Kantian peace project to a geopolitical actor?</p></div>
-      <div class="card"><div class="num">02</div><h3>Main claim</h3><p>The shift is neither pure betrayal nor pure realism: it is Active Kantianism, the defence of juridical peace through coercive instruments.</p></div>
-      <div class="card"><div class="num">03</div><h3>Normative test</h3><p>The question is whether coercive capacity can remain legally constrained, democratically accountable and oriented toward peace.</p></div>
+
+<!-- ================= CHAPTER 1 ================= -->
+<section id="chapter1">
+  <div class="container">
+    <div class="chapter-tag" data-en="CHAPTER 1" data-fr="CHAPITRE 1">CHAPTER 1</div>
+    <h2 data-en="The First Stream" data-fr="Le Premier Live">The First Stream</h2>
+    <div class="card reveal">
+      <p data-en="At 1:13am, Elias clicks a stream clip while waiting for his pasta water to boil."
+         data-fr="À 1h13, Elias clique sur un clip de stream en attendant que l’eau des pâtes bout.">
+        At 1:13am, Elias clicks a stream clip while waiting for his pasta water to boil.</p>
+      <div class="spacer"></div>
+      <p data-en="A French girl is crying over an indie game soundtrack while four hundred viewers spam frog emotes."
+         data-fr="Une fille française pleure sur la BO d’un jeu indé pendant que quatre cents viewers spamment des emotes grenouille.">
+        A French girl is crying over an indie game soundtrack while four hundred viewers spam frog emotes.</p>
+      <div class="spacer"></div>
+      <p class="pixel" style="font-size:1.25rem"
+         data-en="“Je suis désolée chat… this game just… hurts.”"
+         data-fr="« Je suis désolée chat… ce jeu… ça fait mal. »">
+        “Je suis désolée chat… this game just… hurts.”</p>
+      <div class="spacer"></div>
+      <p class="muted" data-en="He should close the tab." data-fr="Il devrait fermer l’onglet.">He should close the tab.</p>
+
+      <div class="choice-grid">
+        <button onclick="heartChoice()" data-en="💙 Send a single blue heart" data-fr="💙 Envoyer un seul cœur bleu">💙 Send a single blue heart</button>
+        <button class="alt" onclick="closeChoice()" data-en="❄ Close the tab" data-fr="❄ Fermer l’onglet">❄ Close the tab</button>
+      </div>
+
+      <div id="chapter1Result"></div>
+
+      <!-- fake twitch chat overlay -->
+      <div id="twitchBox" style="display:none">
+        <div class="twitch">
+          <div class="head"><span class="dot"></span> lou_sings — <span data-en="LIVE" data-fr="EN DIRECT">LIVE</span> · 412 <span data-en="viewers" data-fr="viewers">viewers</span></div>
+          <div class="feed" id="twitchFeed"></div>
+        </div>
+      </div>
+
+      <div class="spacer-lg"></div>
+      <button id="toCh2" style="display:none" onclick="byId('chapter2').scrollIntoView()"
+              data-en="Continue →" data-fr="Continuer →">Continue →</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section argument" id="argument">
-    <aside class="toc-list">
-      <div class="label">Read along</div>
-      <ol>
-        <li>Introduction</li>
-        <li class="active">Analytical framework</li>
-        <li>Genealogy of peace</li>
-        <li>Institutional mechanisms</li>
-        <li>Just War &amp; perpetual peace</li>
-        <li>Conclusion</li>
-      </ol>
-      <a class="btn ghost" style="margin-top:18px" href="read.html?v=20260430-final">Jump to reader ↗</a>
-    </aside>
-    <article class="read-preview">
-      <div class="label">Argument preview</div>
-      <h2>The fight for a continent that is whole and at peace.</h2>
-      <p class="lede">The coupling of “fight” and “peace” is no rhetorical accident. It names the thesis's central philosophical tension: can a peace project use coercive means without ceasing to be a peace project?</p>
-      <blockquote class="pullquote">The EU has reframed power as <em>necessary for the defence of norms</em>.</blockquote>
-      <p>The website is organised so visitors can first grasp the argument, then move into the thesis itself. The full reader keeps the long-form academic text isolated chapter by chapter, with a table of contents and reading controls.</p>
-    </article>
-    <aside class="aside" id="concepts">
-      <div class="label">Key concepts</div>
-      <div class="term"><b>Active Kantianism</b>The use of coercive instruments to defend the legal conditions of peace.</div>
-      <div class="term"><b>Institutional conatus</b>A polity's drive to preserve its constitutive form when threatened.</div>
-      <div class="term"><b>Hostis iniustus</b>Kant's unjust enemy: one whose conduct negates juridical order.</div>
-      <div class="term"><b>European Peace Facility</b>The instrument that exposes the paradox of financing military aid through the vocabulary of peace.</div>
-    </aside>
-  </section>
 
-  <section class="section" id="structure">
-    <h2>Structure of the reasoning.</h2>
-    <div class="grid cols-4">
-      <div class="card"><div class="num">PART I</div><h3>Framework</h3><p>Literature review, concepts, method and research design.</p></div>
-      <div class="card"><div class="num">PART II</div><h3>Genealogy</h3><p>Kant, Schmitt and Spinoza as lenses for European peace.</p></div>
-      <div class="card"><div class="num">PART III</div><h3>Mechanisms</h3><p>EPF, defence readiness, Commission centralisation and discourse.</p></div>
-      <div class="card"><div class="num">PART IV</div><h3>Judgment</h3><p>Just War, perpetual peace and the reopened federal question.</p></div>
+<!-- ================= CHAPTER 2 ================= -->
+<section id="chapter2">
+  <div class="container">
+    <div class="chapter-tag" data-en="CHAPTER 2" data-fr="CHAPITRE 2">CHAPTER 2</div>
+    <h2 data-en="Le Problème des Émotions" data-fr="Le Problème des Émotions">Le Problème des Émotions</h2>
+    <div class="card reveal">
+      <p data-en="Lou sends a 4-minute voice message at 2:08am. Elias listens three times."
+         data-fr="Lou envoie un message vocal de 4 minutes à 2h08. Elias l’écoute trois fois.">
+        Lou sends a 4-minute voice message at 2:08am. Elias listens three times.</p>
+      <div class="spacer"></div>
+      <p class="pixel" style="font-size:1.25rem"
+         data-en="“I think she’s sad? Or hungry? Or both?”"
+         data-fr="« Je crois qu’elle est triste ? Ou affamée ? Ou les deux ? »">
+        “I think she’s sad? Or hungry? Or both?”</p>
+      <div class="spacer-lg"></div>
+      <h3 data-en="🧠 Decode Lou’s emotions" data-fr="🧠 Décode les émotions de Lou">🧠 Decode Lou’s emotions</h3>
+      <p class="muted" data-en="Some questions have more than one right answer. Choose carefully."
+         data-fr="Certaines questions ont plus d’une bonne réponse. Choisis bien.">Some questions have more than one right answer. Choose carefully.</p>
+
+      <div id="quiz"></div>
+      <div class="spacer"></div>
+      <button onclick="submitQuiz()" data-en="Submit answers" data-fr="Valider les réponses">Submit answers</button>
+      <div id="quizResult"></div>
+
+      <div class="spacer-lg"></div>
+      <button id="toCh3" style="display:none" onclick="byId('chapter3').scrollIntoView()"
+              data-en="Continue →" data-fr="Continuer →">Continue →</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="about">
-    <h2>Read the thesis as a website.</h2>
-    <p class="lead">The full thesis reader keeps the final text separate from the homepage: each chapter opens cleanly, the navigation tracks the structure, and reading tools make the long academic text easier to handle on screen.</p>
-    <div class="ctas"><a class="btn" href="read.html?v=20260430-final">Open the full reader ↗</a><a class="btn ghost" href="assets/Temporary-FINAL-DRAFT.docx">Download draft ↓</a></div>
-  </section>
 
-  <footer class="footer">
-    <div><h4>The Site</h4>Home · Argument · Concepts · Full reader</div>
-    <div><h4>The Author</h4>Rayane Feriate<br>College of Europe, Bruges</div>
-    <div><h4>Supervisor</h4>Prof. Alberto Alemanno</div>
-    <div><h4>Files</h4><a href="read.html?v=20260430-final">Read HTML</a><br><a href="assets/Temporary-FINAL-DRAFT.docx">DOCX draft</a></div>
-  </footer>
-</main>
+<!-- ================= CHAPTER 3 ================= -->
+<section id="chapter3">
+  <div class="container">
+    <div class="chapter-tag" data-en="CHAPTER 3" data-fr="CHAPITRE 3">CHAPTER 3</div>
+    <h2 data-en="Första Resan / First Trip" data-fr="Första Resan / Premier Voyage">Första Resan / First Trip</h2>
+    <div class="card reveal">
+      <p data-en="Lou arrives in Sweden wearing platform boots completely unsuitable for snow. Elias silently hands her thicker socks."
+         data-fr="Lou débarque en Suède en bottes à plateforme totalement inadaptées à la neige. Elias lui tend en silence des chaussettes plus chaudes.">
+        Lou arrives in Sweden wearing platform boots completely unsuitable for snow. Elias silently hands her thicker socks.</p>
+
+      <p class="muted" style="margin-top:1rem" data-en="Tap a place on the map." data-fr="Touche un lieu sur la carte.">Tap a place on the map.</p>
+      <div class="map">
+        <div class="location" id="loc-stockholm" onclick="showLocation('stockholm')">
+          <span class="ico">📍</span><span data-en="Stockholm" data-fr="Stockholm">Stockholm</span></div>
+        <div class="location" id="loc-lake" onclick="showLocation('lake')">
+          <span class="ico">❄</span><span data-en="Frozen Lake" data-fr="Lac Gelé">Frozen Lake</span></div>
+        <div class="location" id="loc-cafe" onclick="showLocation('cafe')">
+          <span class="ico">☕</span><span data-en="Tiny Café" data-fr="Petit Café">Tiny Café</span></div>
+      </div>
+      <div id="locationStory"></div>
+
+      <div class="pov">
+        <div class="card lou-pov">
+          <h3 data-en="Lou’s POV" data-fr="POV de Lou">Lou’s POV</h3>
+          <p data-en="“He says so little but notices EVERYTHING. Is this what safety feels like?”"
+             data-fr="« Il dit si peu mais remarque TOUT. C’est ça, se sentir en sécurité ? »">
+            “He says so little but notices EVERYTHING. Is this what safety feels like?”</p>
+        </div>
+        <div class="card elias-pov">
+          <h3 data-en="Elias’s POV" data-fr="POV d’Elias">Elias’s POV</h3>
+          <p data-en="“She talks like she’s afraid silence means abandonment. I want to tell her it doesn’t. I hand her socks instead.”"
+             data-fr="« Elle parle comme si elle avait peur que le silence soit un abandon. Je veux lui dire que non. À la place, je lui tends des chaussettes. »">
+            “She talks like she’s afraid silence means abandonment. I want to tell her it doesn’t. I hand her socks instead.”</p>
+        </div>
+      </div>
+
+      <div class="spacer-lg"></div>
+      <button id="toCh4" style="display:none" onclick="byId('chapter4').scrollIntoView()"
+              data-en="Continue →" data-fr="Continuer →">Continue →</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= CHAPTER 4 ================= -->
+<section id="chapter4">
+  <div class="container">
+    <div class="chapter-tag" data-en="CHAPTER 4" data-fr="CHAPITRE 4">CHAPTER 4</div>
+    <h2 data-en="La Grande Dispute" data-fr="La Grande Dispute">La Grande Dispute</h2>
+    <div class="card reveal">
+      <p data-en="They fight. Lou overshares online. Elias goes quiet. Then this:"
+         data-fr="Ils se disputent. Lou en dit trop en ligne. Elias se tait. Puis ceci :">
+        They fight. Lou overshares online. Elias goes quiet. Then this:</p>
+
+      <div class="chat">
+        <div class="msg lou"><span class="name">Lou</span><span data-en="You disappeared for 6 hours." data-fr="Tu as disparu pendant 6 heures.">You disappeared for 6 hours.</span></div>
+        <div class="msg elias"><span class="name">Elias</span><span data-en="I was fixing your OBS settings." data-fr="Je réparais tes réglages OBS.">I was fixing your OBS settings.</span></div>
+        <div class="msg lou"><span class="name">Lou</span><span data-en="You could have SAID that." data-fr="Tu aurais pu le DIRE.">You could have SAID that.</span></div>
+      </div>
+
+      <h3 data-en="Choose Elias’s response:" data-fr="Choisis la réponse d’Elias :">Choose Elias’s response:</h3>
+      <div class="choice-grid">
+        <button onclick="fightChoice('repair')"
+          data-en="“I didn’t know you needed reassurance.”" data-fr="« Je ne savais pas que tu avais besoin d’être rassurée. »">“I didn’t know you needed reassurance.”</button>
+        <button class="alt" onclick="fightChoice('defensive')"
+          data-en="“You’re overreacting.”" data-fr="« Tu exagères. »">“You’re overreacting.”</button>
+        <button onclick="fightChoice('honest')"
+          data-en="“I stay even when I don’t understand.”" data-fr="« Je reste même quand je ne comprends pas. »">“I stay even when I don’t understand.”</button>
+      </div>
+      <div id="fightResult"></div>
+
+      <div class="spacer-lg"></div>
+      <button id="toFinal" style="display:none" onclick="byId('final').scrollIntoView()"
+              data-en="Answer the call →" data-fr="Répondre à l’appel →">Answer the call →</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= FINAL ================= -->
+<section id="final">
+  <div class="container center">
+    <div class="chapter-tag" data-en="FINAL CHAPTER" data-fr="DERNIER CHAPITRE">FINAL CHAPTER</div>
+    <h2 data-en="When You Call Me" data-fr="Quand Tu M’Appelles">When You Call Me</h2>
+
+    <div class="card reveal" style="max-width:680px;margin-inline:auto">
+      <div class="stars">✦ ✦ ✦</div>
+      <div class="spacer-lg"></div>
+      <p data-en="The phone rings. For the first time, Elias calls instead of texting."
+         data-fr="Le téléphone sonne. Pour la première fois, Elias appelle au lieu d’écrire.">
+        The phone rings. For the first time, Elias calls instead of texting.</p>
+      <div class="spacer"></div>
+      <p data-en="Lou freezes." data-fr="Lou se fige.">Lou freezes.</p>
+      <div class="spacer"></div>
+      <p class="pixel" style="font-size:1.4rem;color:var(--orange-deep)">“mon petit singe?”</p>
+      <div class="spacer-lg"></div>
+      <button class="big" onclick="showEnding()" data-en="📞 Answer the call" data-fr="📞 Répondre à l’appel">📞 Answer the call</button>
+      <div id="ending"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= PERSONALITY TEST ================= -->
+<section id="ptest">
+  <div class="container">
+    <div class="chapter-tag" data-en="BONUS" data-fr="BONUS">BONUS</div>
+    <h2 data-en="Are you Lou or Elias?" data-fr="Es-tu Lou ou Elias ?">Are you Lou or Elias?</h2>
+    <div class="card reveal ptest">
+      <div id="ptestIntro">
+        <p data-en="Six questions. No wrong answers — only fire and ice. Find out whether you burn or whether you hold."
+           data-fr="Six questions. Pas de mauvaise réponse — seulement du feu et de la glace. Découvre si tu brûles ou si tu tiens le feu.">
+          Six questions. No wrong answers — only fire and ice. Find out whether you burn or whether you hold.</p>
+        <div class="spacer"></div>
+        <button onclick="startPTest()" data-en="Take the test" data-fr="Faire le test">Take the test</button>
+      </div>
+      <div id="ptestBox" style="display:none"></div>
+      <div id="ptestResult"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= VOICE NOTE GALLERY ================= -->
+<section id="gallery">
+  <div class="container">
+    <div class="chapter-tag" data-en="COLLECTION" data-fr="COLLECTION">COLLECTION</div>
+    <h2 data-en="Voice Note Gallery" data-fr="Galerie de Notes Vocales">Voice Note Gallery</h2>
+    <p class="muted" data-en="Late-night recordings, unlocked by the choices you make. Collected: " data-fr="Enregistrements nocturnes, débloqués par tes choix. Récoltés : ">Late-night recordings, unlocked by the choices you make. Collected: <strong id="vnCounter">0/7</strong></p>
+    <div class="vn-gallery" id="vnGallery"></div>
+  </div>
+</section>
+
+
+<footer>
+  <p class="pixel" style="font-size:1.2rem">✦ WHEN YOU CALL ME, SINGE ✦</p>
+  <p data-en="Lou burns. Elias holds the fire. Made with 💙 and 🔥."
+     data-fr="Lou brûle. Elias tient le feu. Fait avec 💙 et 🔥.">Lou burns. Elias holds the fire. Made with 💙 and 🔥.</p>
+  <p class="muted" style="font-size:.78rem" data-en="“singe” = monkey in French · sounds like “singer” · she always sings."
+     data-fr="« singe » = monkey en anglais · ça sonne comme « singer » · elle chante toujours.">“singe” = monkey in French · sounds like “singer” · she always sings.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
 </body>
 </html>
